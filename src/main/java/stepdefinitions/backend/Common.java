@@ -21,7 +21,7 @@ public class Common {
 
 	public Common(TestContext testContext) {
 		this.testContext = testContext;
-    }
+	}
 	
 	public void setEndpoint(String endpoint) {
 		switch (endpoint) {
@@ -39,15 +39,15 @@ public class Common {
 		log.info("Status received => " + response.getStatusLine()); 
 		try {
 			Assert.assertEquals(200, response.statusCode());
-	        this.testContext.setResponse(response);
-	        this.testContext.setJSONBody(response.getBody().toString());
+			this.testContext.setResponse(response);
+			this.testContext.setJSONBody(response.getBody().toString());
 		} catch (Exception e) {
-		  throw new AssertionError("  Request response was not 200. Response:\n" + response.prettyPrint());
+			throw new AssertionError("  Request response was not 200. Response:\n" + response.prettyPrint());
 		}
 	}
 	
 	public List<Map<String, Object>> filteredCurrencyRateJson(String jsonFilteringPath, Filter filter) {
 		return JsonPath.parse(this.testContext.getResponse().getBody().asString())
-		          .read(jsonFilteringPath, filter); 
+				.read(jsonFilteringPath, filter); 
 	}
 }

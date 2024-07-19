@@ -15,18 +15,18 @@ public class BrowserSetup {
 		WebDriver driver = null;
 		try {
 			log.info("Starting ChromeDriver version 126.0.0...");
-	        WebDriverManager.chromedriver().setup();
-	  	    driver = new ChromeDriver();
-	  	    WebDriverRunner.setWebDriver(driver);
-	  	} catch (Error e) {
-	  		throw new Error ("Failed to initialize ChromeDriver " + e.getMessage());
-	  	} finally {
-	  		log.info("ChromeDriver initialized successfully.");
-	  	}
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			WebDriverRunner.setWebDriver(driver);
+		} catch (Error e) {
+			throw new Error ("Failed to initialize ChromeDriver " + e.getMessage());
+		} finally {
+			log.info("ChromeDriver initialized successfully.");
+		}
 		return driver;
 	}
 	
 	public static void tearDown(){
-        driver.quit();
-    }
+		driver.quit();
+	}
 }

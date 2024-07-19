@@ -11,16 +11,16 @@ public class ExchangeRatesAPI extends Common {
 
 	public ExchangeRatesAPI(TestContext testContext) {
 		super(testContext);
-    }
+	}
 
 	public void displayCurrencyRates(String currency) {
-        Filter filterByCurrencyName = Filter.filter(Criteria.where("currency").is(currency));
-        Filter filterByCurrencyCode = Filter.filter(Criteria.where("code").is(currency));
-        List<Map<String, Object>> currencyRate = (currency.length() == 3)?        		
-        		filteredCurrencyRateJson(jsonCurrenyRatesPath, filterByCurrencyCode):
-                filteredCurrencyRateJson(jsonCurrenyRatesPath, filterByCurrencyName);
-        log.info("Filtered currency rate by " + ((currency.length() == 3)? "code:" : "name:"));
-        log.info(currencyRate.toString());	
+		Filter filterByCurrencyName = Filter.filter(Criteria.where("currency").is(currency));
+		Filter filterByCurrencyCode = Filter.filter(Criteria.where("code").is(currency));
+		List<Map<String, Object>> currencyRate = (currency.length() == 3)?        		
+				filteredCurrencyRateJson(jsonCurrenyRatesPath, filterByCurrencyCode):
+				filteredCurrencyRateJson(jsonCurrenyRatesPath, filterByCurrencyName);
+		log.info("Filtered currency rate by " + ((currency.length() == 3)? "code:" : "name:"));
+		log.info(currencyRate.toString());	
 	}
 
 	public void currencyBelowOrAboveValue(String direction, String boundaryValue) {

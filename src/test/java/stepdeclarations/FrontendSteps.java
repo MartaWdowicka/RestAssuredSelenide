@@ -18,7 +18,7 @@ public class FrontendSteps {
     	browser.openTMobileHomePage();
     }
 
-	@When("add product to basket")
+    @When("add product to basket")
     public void addProductToBasket() throws Exception {
 		browser.addProductToBasket();
     }
