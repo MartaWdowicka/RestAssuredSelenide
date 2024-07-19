@@ -18,21 +18,21 @@ public class BackendSteps {
 
     @Given("set endpoint as {}")
     public void setEndpoint(String endpoint) {
-    	common.setEndpoint(endpoint);
+        common.setEndpoint(endpoint);
     }
     
     @When("get current exchange rates")
     public void getExchangeRates() throws Exception {
-    	common.getDataFromEndpoint();
+        common.getDataFromEndpoint();
     }
 
     @Then("print rates for currency {}")
     public void displayCurrencyRates(String currency) throws Exception {
-    	exchangeRatesAPI.displayCurrencyRates(currency);
+        exchangeRatesAPI.displayCurrencyRates(currency);
     }
     
     @Then("print currencies with rates {} {}")
     public void displayCurrencyWithRates(String direction, String boundaryValue) throws Exception {
-    	exchangeRatesAPI.currencyBelowOrAboveValue(direction, boundaryValue);
+        exchangeRatesAPI.currencyBelowOrAboveValue(direction, boundaryValue);
     }
 }

@@ -20,7 +20,7 @@ public class FrontendSteps {
 
     @When("add product to basket")
     public void addProductToBasket() throws Exception {
-		browser.addProductToBasket();
+    	browser.addProductToBasket();
     }
 
     @Then("added products visible in basket")
