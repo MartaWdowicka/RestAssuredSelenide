@@ -1,14 +1,27 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven' // Ensure this matches the Maven installation name in Jenkins
+        jdk 'JDK18'  // Ensure this matches the JDK installation name in Jenkins
+    }
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                script {
+                    sh 'mvn clean install'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                script {
+                    sh 'mvn test'
+                }
             }
         }
     }
