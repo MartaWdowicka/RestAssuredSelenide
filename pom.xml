@@ -10,6 +10,10 @@
     <packaging>jar</packaging>
     <name>Cucumber-Java-JUnit Project</name>
 
+	<properties>
+	    <property>${selenide.browser}</property>
+	</properties>
+
     <dependencies>
         <!-- Cucumber dependencies -->
         <dependency>

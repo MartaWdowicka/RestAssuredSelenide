@@ -15,7 +15,7 @@ public class FrontendSteps {
     }
 
     @Given("navigate to T-Mobile home page")
-    public void setAPIEndpoint() {
+    public void openHomePage() {
         browser.openTMobileHomePage();
     }
 
