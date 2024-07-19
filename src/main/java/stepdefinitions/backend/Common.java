@@ -2,6 +2,7 @@ package stepdefinitions.backend;
 
 import java.util.List;
 import java.util.Map;
+
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public class Common {
         Response response = httpRequest.request(Method.GET, "");
         log.info("Status received => " + response.getStatusLine());
         try {
-            Assert.assertEquals(200, response.statusCode());
+        	Assert.assertEquals(200, response.statusCode());
             this.testContext.setResponse(response);
             this.testContext.setJSONBody(response.getBody().toString());
         } catch (Exception e) {
