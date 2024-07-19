@@ -15,38 +15,38 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class Common {
-	protected static final Logger log = LoggerFactory.getLogger(Common.class);
-	protected ServerConfig config = ServerConfig.getServerConfig();
-	protected TestContext testContext;
+    protected static final Logger log = LoggerFactory.getLogger(Common.class);
+    protected ServerConfig config = ServerConfig.getServerConfig();
+    protected TestContext testContext;
 
-	public Common(TestContext testContext) {
-		this.testContext = testContext;
-	}
+    public Common(TestContext testContext) {
+        this.testContext = testContext;
+    }
 
-	public void setEndpoint(String endpoint) {
-		switch (endpoint) {
-		case "exchangerates":
-			endpoint = config.getCurrencyExchangeEndpoint();
-		}
-		log.info("Using endpoint: " + endpoint);
-		this.testContext.setEndpoint(endpoint);
-	}
+    public void setEndpoint(String endpoint) {
+        switch (endpoint) {
+        case "exchangerates":
+            endpoint = config.getCurrencyExchangeEndpoint();
+        }
+        log.info("Using endpoint: " + endpoint);
+        this.testContext.setEndpoint(endpoint);
+    }
 
-	public void getDataFromEndpoint() {
-		RestAssured.baseURI = testContext.getEndpoint();
-		RequestSpecification httpRequest = RestAssured.given();
-		Response response = httpRequest.request(Method.GET, "");
-		log.info("Status received => " + response.getStatusLine());
-		try {
-			Assert.assertEquals(200, response.statusCode());
-			this.testContext.setResponse(response);
-			this.testContext.setJSONBody(response.getBody().toString());
-		} catch (Exception e) {
-			throw new AssertionError("  Request response was not 200. Response:\n" + response.prettyPrint());
-		}
-	}
+    public void getDataFromEndpoint() {
+        RestAssured.baseURI = testContext.getEndpoint();
+        RequestSpecification httpRequest = RestAssured.given();
+        Response response = httpRequest.request(Method.GET, "");
+        log.info("Status received => " + response.getStatusLine());
+        try {
+            Assert.assertEquals(200, response.statusCode());
+            this.testContext.setResponse(response);
+            this.testContext.setJSONBody(response.getBody().toString());
+        } catch (Exception e) {
+            throw new AssertionError("  Request response was not 200. Response:\n" + response.prettyPrint());
+        }
+    }
 
-	public List<Map<String, Object>> filteredCurrencyRateJson(String jsonFilteringPath, Filter filter) {
-		return JsonPath.parse(this.testContext.getResponse().getBody().asString()).read(jsonFilteringPath, filter);
-	}
+    public List<Map<String, Object>> filteredCurrencyRateJson(String jsonFilteringPath, Filter filter) {
+        return JsonPath.parse(this.testContext.getResponse().getBody().asString()).read(jsonFilteringPath, filter);
+    }
 }

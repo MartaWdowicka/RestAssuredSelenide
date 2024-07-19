@@ -8,8 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public final class TestContext {
-	private String endpoint;
-	private String JSONBody;
-	private Response response;
-	private JSONObject testData;
+    private String endpoint;
+    private String JSONBody;
+    private Response response;
+    private JSONObject testData;
 }
