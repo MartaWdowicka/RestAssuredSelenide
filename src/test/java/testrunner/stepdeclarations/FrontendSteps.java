@@ -14,9 +14,14 @@ public class FrontendSteps {
         this.browser = new TestSteps(testContext);
     }
 
-    @Given("navigate to T-Mobile home page")
+    @Given("open T-Mobile home page")
     public void openHomePage() {
-        browser.openTMobileHomePage();
+        browser.openTMobileHomePage(false);
+    }
+    
+    @Given("open T-Mobile home page {}")
+    public void openHomePage(String again) {
+        browser.openTMobileHomePage(true);
     }
 
     @When("add product to basket")

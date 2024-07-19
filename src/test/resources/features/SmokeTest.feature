@@ -3,9 +3,9 @@ Feature: T-Mobile Interview Tests
    @ui
    Scenario: On T-Mobile page verify adding products to basket
   
-      Given navigate to T-Mobile home page
+      Given open T-Mobile home page
       When add product to basket
-      And navigate to T-Mobile home page
+      And open T-Mobile home page again
       Then added products visible in basket 
 	    
    Scenario: Validate currency rates API

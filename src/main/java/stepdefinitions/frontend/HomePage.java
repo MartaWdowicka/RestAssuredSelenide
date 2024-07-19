@@ -16,9 +16,9 @@ public class HomePage extends Common {
         super(testContext);
     }
 
-    public static void openTMobileHomePage() {
+    public static void openTMobileHomePage(boolean expectingCookiePopup) {
         open(config.getTMobileUrl());
-        if ($$(acceptCookie).size() > 0) {
+        if (expectingCookiePopup && $$(acceptCookie).size() > 0) {
             $(acceptCookie).click();
         }
     }
