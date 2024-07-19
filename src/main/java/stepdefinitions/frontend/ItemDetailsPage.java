@@ -13,7 +13,7 @@ public class ItemDetailsPage extends Common {
 		super(testContext);
 	}
 
-	public static void clickAddProductToBasketButton() {	
+	public static void clickAddProductToBasketButton() {
 		$(By.xpath(addToBasketButton), 1).click();
 	}
 

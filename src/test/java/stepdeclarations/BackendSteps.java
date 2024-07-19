@@ -17,7 +17,7 @@ public class BackendSteps {
     }
 
     @Given("set endpoint as {}")
-    public void setEndpoint(String endpoint) {
+	public void setEndpoint(String endpoint) {
         common.setEndpoint(endpoint);
     }
     

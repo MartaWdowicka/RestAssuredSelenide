@@ -8,7 +8,7 @@ public abstract class Common {
 	@SuppressWarnings("unused")
 	private TestContext testContext;
 
-	public Common (TestContext testContext) {
+	public Common(TestContext testContext) {
 		this.testContext = testContext;
 	}
 }

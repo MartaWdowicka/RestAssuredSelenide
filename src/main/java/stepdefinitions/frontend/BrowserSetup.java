@@ -19,14 +19,14 @@ public class BrowserSetup {
 			driver = new ChromeDriver();
 			WebDriverRunner.setWebDriver(driver);
 		} catch (Error e) {
-			throw new Error ("Failed to initialize ChromeDriver " + e.getMessage());
+			throw new Error("Failed to initialize ChromeDriver " + e.getMessage());
 		} finally {
 			log.info("ChromeDriver initialized successfully.");
 		}
 		return driver;
 	}
-	
-	public static void tearDown(){
+
+	public static void tearDown() {
 		driver.quit();
 	}
 }

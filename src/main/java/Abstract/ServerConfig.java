@@ -12,8 +12,8 @@ import lombok.Setter;
 public class ServerConfig {
 	public String tMobileUrl;
 	public String currencyExchangeEndpoint;
-	
-	public static ServerConfig getServerConfig(){ 
+
+	public static ServerConfig getServerConfig() {
 		ServerConfig config = null;
 		LoaderOptions options = new LoaderOptions();
 		Yaml yaml = new Yaml(new Constructor(ServerConfig.class, options));
