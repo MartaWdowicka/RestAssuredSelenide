@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    stages {
+        stage('Cleanup') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    sh 'mvn clean install -X'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    sh 'mvn test -X'
+                }
+            }
+        }
+    }
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
+        }
+    }
+}
