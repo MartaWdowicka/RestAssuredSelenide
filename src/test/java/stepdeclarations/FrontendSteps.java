@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import stepdefinitions.frontend.TestSteps;
 
 public class FrontendSteps {
+	
     private final TestSteps browser;
 
     public FrontendSteps(TestContext testContext) {

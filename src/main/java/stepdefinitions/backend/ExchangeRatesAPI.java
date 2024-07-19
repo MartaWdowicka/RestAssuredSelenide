@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ExchangeRatesAPI extends Common {
+	
     private String jsonCurrenyRatesPath = "$[*].rates[?]";
 
     public ExchangeRatesAPI(TestContext testContext) {

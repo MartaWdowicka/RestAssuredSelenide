@@ -8,6 +8,7 @@ import stepdefinitions.backend.Common;
 import stepdefinitions.backend.ExchangeRatesAPI;
 
 public class BackendSteps {
+	
     private final ExchangeRatesAPI exchangeRatesAPI;
     private final Common common;
 

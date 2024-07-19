@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import Abstract.TestContext;
 
 public class ItemDetailsPage extends Common {
+	
     private static String addToBasketButton = "//div[contains(text(), 'Dodaj do koszyka')]";
     private static String continueButton = "//span[contains(text(), 'Dalej')]";
 

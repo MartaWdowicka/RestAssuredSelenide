@@ -8,6 +8,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserSetup {
+	
     public static WebDriver driver;
     private static final Logger log = LoggerFactory.getLogger(BrowserSetup.class);
 

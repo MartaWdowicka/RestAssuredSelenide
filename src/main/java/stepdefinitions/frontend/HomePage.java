@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import Abstract.TestContext;
 
 public class HomePage extends Common {
+	
     private static String acceptCookie = "#didomi-notice-agree-button";
     private static String sideMenuButton = ".toggle-navbar";
     private static By basketItemsCounter = By.xpath("//*[contains(text(), 'Przejdź do strony koszyka')]/ancestor::a//div");

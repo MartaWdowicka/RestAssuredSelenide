@@ -8,19 +8,19 @@ import io.cucumber.java.Scenario;
 
 @SuppressWarnings("unused")
 public class CucumberHooks {
-	private final TestContext testContext;
+	
+    private final TestContext testContext;
 
-	public CucumberHooks(TestContext testContext) {
-		this.testContext = testContext;
-	}
+    public CucumberHooks(TestContext testContext) {
+    this.testContext = testContext;
+    }
 
-	@Before()
-	public void setUp() {
-	}
+    @Before()
+    public void setUp() {}
 
-	@Before("@ui")
-	public static void setUp(Scenario scenario) {
-		System.setProperty("selenide.browser", "Chrome");
-		Configuration.timeout = 10000;
-	}
+    @Before("@ui")
+    public static void setUp(Scenario scenario) {
+        System.setProperty("selenide.browser", "Chrome");
+        Configuration.timeout = 10000;
+    }
 }
