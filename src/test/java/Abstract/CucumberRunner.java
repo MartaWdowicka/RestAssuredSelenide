@@ -8,6 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     plugin = {"pretty", "html:target/cucumber-reports"},
     features = "src/test/resources/features",
-    glue = {"Abstract"}
+    glue = {"stepdefinitions.backend", "stepdefinitions.frontend"}
 )
 public class CucumberRunner {}
