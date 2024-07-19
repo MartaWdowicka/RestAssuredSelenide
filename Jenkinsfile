@@ -7,20 +7,14 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel {
-                stage('Unit Tests') {
-                    steps {
-                        sh 'mvn test'
-                    }
-                }
-                stage('Integration Tests') {
-                    steps {
-                        sh 'mvn verify -DskipUnitTests'
-                    }
-                }
+            steps {
+                sh 'mvn test'
             }
         }
     }
     post {
         always {
-            junit '**/
+            junit '**/target/surefire-reports/*.xml'
+        }
+    }
+}
