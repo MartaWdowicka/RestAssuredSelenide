@@ -4,32 +4,48 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Java</groupId>
+ <groupId>Java</groupId>
     <artifactId>JavaRestAssuredCucumberLomback</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Cucumber-Java-JUnit Project</name>
 
-	<properties>
-	    <property>${selenide.browser}</property>
-	</properties>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <property>${selenide.browser}</property>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.jupiter.version>5.8.2</junit.jupiter.version>
+        <cucumber.version>7.18.0</cucumber.version>
+    </properties>
 
     <dependencies>
         <!-- Cucumber dependencies -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.18.0</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.18.0</version>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+        <dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-suite-api</artifactId>
+		    <version>1.11.0-M2</version>
+		    <scope>test</scope>
+		</dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
-            <version>7.18.0</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -49,10 +65,10 @@
             <version>20220924</version>
         </dependency>
         <dependency>
-		    <groupId>com.jayway.jsonpath</groupId>
-		    <artifactId>json-path</artifactId>
-		    <version>2.9.0</version>
-		</dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.9.0</version>
+        </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
@@ -95,21 +111,11 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.6.4</version>
-        </dependency>             
-        <dependency>
-		    <groupId>ch.qos.logback</groupId>
-		    <artifactId>logback-classic</artifactId>
-		    <version>1.2.3</version>
-		</dependency>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.36</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -123,28 +129,28 @@
         </dependency>
         <!-- Selenide Java Dependency -->
         <dependency>
-		  <groupId>org.seleniumhq.selenium</groupId>
-		  <artifactId>selenium-java</artifactId>
-		  <version>4.22.0</version>
-		</dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.22.0</version>
+        </dependency>
         <dependency>
-		    <groupId>com.codeborne</groupId>
-		    <artifactId>selenide</artifactId>
-		    <version>7.3.3</version>
-		</dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.3.3</version>
+        </dependency>
     </dependencies>
 
     <build>
-	     <testResources>
-	        <testResource>
-	            <directory>src/test/resources</directory>
-	            <includes>
-	                <include>**/*.feature</include>
-	                <include>**/*.xml</include>
-	                <include>**/*.yaml</include>
-	            </includes>
-	        </testResource>
-	    </testResources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.feature</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.yaml</include>
+                </includes>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -152,8 +158,8 @@
                 <version>3.8.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -164,6 +170,8 @@
                     <includes>
                         <include>**/CucumberRunner.java</include>
                     </includes>
+                    <parallel>classesAndMethods</parallel>
+                    <threadCount>4</threadCount> <!-- Adjust based on your needs -->
                 </configuration>
             </plugin>
         </plugins>

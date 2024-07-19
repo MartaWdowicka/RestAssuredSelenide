@@ -1,8 +1,8 @@
 package stepdefinitions.backend;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.jayway.jsonpath.Filter;
@@ -38,7 +38,7 @@ public class Common {
         Response response = httpRequest.request(Method.GET, "");
         log.info("Status received => " + response.getStatusLine());
         try {
-            Assert.assertEquals(200, response.statusCode());
+        	assertTrue(200 == response.statusCode());
             this.testContext.setResponse(response);
             this.testContext.setJSONBody(response.getBody().toString());
         } catch (Exception e) {
