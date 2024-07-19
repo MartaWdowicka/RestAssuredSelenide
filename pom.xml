@@ -131,6 +131,16 @@
     </dependencies>
 
     <build>
+	     <testResources>
+	        <testResource>
+	            <directory>src/test/resources</directory>
+	            <includes>
+	                <include>**/*.feature</include>
+	                <include>**/*.xml</include>
+	                <include>**/*.yaml</include>
+	            </includes>
+	        </testResource>
+	    </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,4 +1,4 @@
-package stepdeclarations;
+package testrunner.stepdeclarations;
 
 import Abstract.TestContext;
 import io.cucumber.java.en.Given;
