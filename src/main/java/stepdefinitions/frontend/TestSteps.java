@@ -9,8 +9,8 @@ public class TestSteps extends Common {
         super(testContext);
     }
 
-    public void openTMobileHomePage(boolean openingSecondTime) {
-        HomePage.openTMobileHomePage(openingSecondTime);
+    public void openTMobileHomePage() {
+        HomePage.openTMobileHomePage();
     }
 
     public void addProductToBasket() throws Exception {

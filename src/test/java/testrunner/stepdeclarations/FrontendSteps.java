@@ -14,14 +14,9 @@ public class FrontendSteps {
         this.browser = new TestSteps(testContext);
     }
 
-    @Given("open T-Mobile home page")
-    public void openHomePage() {
-        browser.openTMobileHomePage(false);
-    }
-    
-    @Given("open T-Mobile home page {}")
-    public void openHomePage(String again) {
-        browser.openTMobileHomePage(true);
+    @Given("{} home page")
+    public void openHomePage(String returning) {
+        browser.openTMobileHomePage();
     }
 
     @When("add product to basket")
